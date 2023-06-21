@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title><b>Alumnos</b></ion-title>
+    <ion-buttons slot="end">
+      <ion-button  (click)="closeModal();">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <br>
+  <ion-button color="success" (click)="new_instructor();">
+    <ion-icon name="add-outline"></ion-icon>Nuevo
+  </ion-button>
+  <br>
+  
+  <h2 class="ion-text-center" *ngIf="alumnos.length == 0">
+    Sin informacion
+  </h2>
+
+  
+    <ion-list>
+      <ion-item *ngFor="let alumno of alumnos" color="">
+        <ion-label >
+          <ion-grid >
+            <ion-row>
+              <ion-col><h2><b>Nombre: </b>{{alumno.nombre}} </h2></ion-col>
+              <ion-col></ion-col>
+              <ion-col class="ion-text-end">
+                
+                
+                
+                
+                <ion-button color="primary" (click)="editar_alumno(alumno);" >
+                  Editar
+                </ion-button>
+
+                <ion-button color="danger" (click)="borrar_alumno(alumno);" >
+                  Borrar
+                  </ion-button>
+                
+
+                
+                
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col><h2><b>Direccion: </b>{{alumno.direccion}} </h2></ion-col>
+              <ion-col></ion-col>
+              <ion-col >
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col></ion-col>
+              <ion-col></ion-col>
+              <ion-col></ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+
+    
+</ion-content>
+

@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-title><b>Instructores</b></ion-title>
+    <ion-buttons slot="end">
+      <ion-button  (click)="closeModal();">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <br>
+  <ion-button color="success" (click)="new_instructor();">
+    <ion-icon name="add-outline"></ion-icon>Nuevo
+  </ion-button>
+  <br>
+
+  <h2 class="ion-text-center" *ngIf="instructores.length == 0">
+    Sin informacion
+  </h2>
+
+  
+    <ion-list>
+      <ion-item *ngFor="let instructor of instructores" color="">
+        <ion-label >
+          <ion-grid >
+            <ion-row>
+              <ion-col><h2><b>Nombre: </b>{{instructor.nombre}} </h2></ion-col>
+              <ion-col></ion-col>
+              <ion-col class="ion-text-end">
+                
+
+              
+                <ion-button color="primary" (click)="editar_instructor(instructor);" >
+                  Editar
+                </ion-button>
+
+                <ion-button color="danger" (click)="borrar_instructor(instructor);" >
+                  Borrar
+                </ion-button>
+              
+            
+
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col><h2><b>Direccion: </b>{{instructor.direccion}} </h2></ion-col>
+              <ion-col></ion-col>
+              <ion-col >
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col></ion-col>
+              <ion-col></ion-col>
+              <ion-col></ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+
+    
+</ion-content>
+

@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title><b>Editar Evento</b></ion-title>
+    <ion-buttons slot="end">
+      <ion-button  (click)="closeModal();">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-xl="8" size-lg="10" size-md="10" size-sm="12">
+        <form >
+          
+          <div>
+            <h4 class="ion-text-center">Editar Evento</h4>
+          </div>
+          <ion-segment>
+           
+          </ion-segment>
+          <br>
+          <ion-input placeholder="Fecha Inicio:" class="primary-input" type="text" [(ngModel)]="evento2.fecha_inicio"  name="fecha_inicio"></ion-input>
+          <ion-input placeholder="Fecha Fin:" class="primary-input" type="text" [(ngModel)]="evento2.fecha_fin"   name="fecha_fin"></ion-input>
+          <ion-select name ="fk_instructor" [(ngModel)]="evento2.fk_instructor"  placeholder="Instructor" >
+            <ion-select-option *ngFor="let instructor of instructores" value="{{instructor.id}}">
+              {{instructor.nombre}}
+            </ion-select-option>
+          </ion-select>
+          
+            <ion-select name ="fk_curso" [(ngModel)]="evento2.fk_curso"  placeholder="Curso" >
+              <ion-select-option *ngFor="let curso of cursos" value="{{curso.id}}">
+                {{curso.titulo}} 
+              </ion-select-option>
+            </ion-select>
+          
+          
+          <ion-select name ="fk_ubicacion" [(ngModel)]="evento2.fk_ubicacion" placeholder="Ubicacion" >
+            <ion-select-option *ngFor="let ubicacion of ubicaciones" value="{{ubicacion.id}}">
+              {{ubicacion.nombre}}
+            </ion-select-option>
+          </ion-select>
+          <div class="ion-margin-top">
+            <ion-button expand="block" type="button" color="danger" (click)="closeModal();">Cancelar</ion-button>
+          </div>
+          <div class="ion-margin-top">
+            <ion-button expand="block" type="submit"  (click)="editar_curso(evento);" >Editar</ion-button>
+          </div>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+     
+
+    
+</ion-content>
+
